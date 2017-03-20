@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class='col-sm-offset-2'>
+
+{%if songs%}
+
+{%for song in songs%}
+{{song.song_title}}<br>
+{{song.album}}
+
+
+<br>
+<br>
+{%endfor%}
+{%else%}
+<h3>
+nooo songs
+</h3>
+{%endif%}
+</div>
+{%endblock%}

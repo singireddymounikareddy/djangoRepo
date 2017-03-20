@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load staticfiles%}
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+	<title>{{request.user}}</title>
+</head>
+<body>
+
+<h4>
+
+<div class='navbar navbar-inverse'>
+<div class='container-fluid'>
+<div class='navbar navbar-header'>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+<a class='navbar-brand' href='{% url 'music:index' %}'>LOGO</a>
+	
+</div>
+	<div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href='{% url 'music:index' %}'><span class='glyphicon glyphicon-cd'></span> &nbsp;albums</a></li>
+        <li><a href="{% url 'music:songs' %}"><span class='glyphicon glyphicon-music'></span> &nbsp;songs</a></li>
+       <li><form class="navbar-form" role="search" method='' action='{% url 'music:search' %}'>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q" id="q">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <li><a href="{% url 'music:album-add' %}"><span class='glyphicon glyphicon-plus'></span> &nbsp;add albums</a></li>	
+          <li><a href="{% url 'music:login' %}?next={% url 'music:index' %}"><span class='glyphicon glyphicon-log-in'></span> &nbsp;login</a></li>
+         <li><a href="{% url 'music:logout' %}?next={% url 'music:index' %}"><span class='glyphicon glyphicon-off'></span> &nbsp;logout</a></li>	
+        	
+
+
+
+        </ul>
+      </h4>
+      </div>
+      </div>
+
+</div>
+<div class='container'>
+<div class='col-sm-offset-2'></div>
+{% block content%}
+{%endblock%}
+</div>
+</body>
+</html>

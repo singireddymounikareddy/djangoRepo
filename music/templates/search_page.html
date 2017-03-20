@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class='col-sm-offset-2'>
+
+{%if songs%}
+
+{%for song in songs%}
+{{song.song_title}}<br>
+{{song.album}}
+
+
+<br>
+<br>
+{%endfor%}
+
+{%endif%}
+{%if albums%}
+
+{%for album in albums%}
+<a href='{% url 'music:detail' album.id %}'>{{album.album_title}}</a><br>
+
+
+
+<br>
+<br>
+{%endfor%}
+
+{%endif%}
+</div>
+{%endblock%}

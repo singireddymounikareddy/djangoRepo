@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class='col-sm-offset-2'>
+<h3>
+{{album.album_title}}<br>
+{{album.artist}}<br>
+
+<img src='{{album.album_logo.url}}' width="250" height="250"><br>
+
+</h3>
+
+
+{%for song in album.song_set.all %}
+
+	<h4>{{song.song_title}}<br>
+	</h4>
+
+{%endfor%}
+</div>
+{%endblock%}	
+
+

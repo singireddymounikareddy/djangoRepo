@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class='col-sm-offset-2'>
+
+{%if albums%}
+
+{%for album in albums%}
+<a href='{% url 'music:detail' album.id %}'>{{album.album_title}}</a><br>
+
+<p>
+<a class='btn btn-info' href='{% url 'music:detail' album.id %}'>view details</a>
+<a class='btn btn-danger' href='{% url 'music:album-delete' album.id%}'>delete</a>
+<a class='btn btn-success' href='{% url 'music:album-update' album.id %}'>update</a>
+<br>
+<br>
+{%endfor%}
+{%else%}
+<h3>
+nooo albums
+</h3>
+{%endif%}
+</div>
+{%endblock%}
